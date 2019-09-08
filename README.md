@@ -1,6 +1,6 @@
 # Facebook But It's Good
 
-![BIG Logo](icons/BIG-icon.png)
+![BIG Logo](icons/icon-96.png)
 
 Hi, user! Carmi here. This page is a guide to the Facebook BIG web extension I made. It covers topics like [why I made this](#overview), [how to set it up](#setup), [what it does](#features), and [how much of your Facebook data I collect](#privacy) (spoiler: the answer is none).
 
