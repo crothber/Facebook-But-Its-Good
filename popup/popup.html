@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="popup.css">
+
+<div class="main-div">
+    Block this content:
+    <span class="tooltip">&#9432
+        <span class="tooltiptext">
+            Enter regexes to filter out of your feed. See 'more info' for details.
+        </span>
+    </span>
+    <br>
+    <textarea id="blacklist" rows=3 cols=30 style="text-align:left; resize:none;">
+    </textarea>
+    <br>
+
+    <input id="news-checkbox" type="checkbox">Show me NYT headlines<br>
+
+    <input id="duolingo-checkbox" type="checkbox">Review Duolingo with me<br>
+    <div id="duolingo-more">
+        <input id="duolingo-username" type="text" placeholder="Duolingo Username"><br>
+        <input id="duolingo-password" type="password" placeholder="Duolingo Password"><br>
+    </div>
+    
+    <input type="checkbox">Show me a poem a day<br>
+    
+    <input type="checkbox">Give me a vocab word a day<br>
+    
+    <button id="options-submit-button">Apply Changes</button>
+</div>
+
+<script src="popup.js"></script>

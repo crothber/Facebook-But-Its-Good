@@ -1,0 +1,42 @@
+{
+
+    "manifest_version": 2,
+    "name": "AdBlocker",
+    "version": "1.0",
+  
+    "description": "Removes ads from Facebook.",
+  
+    "icons": {
+      "48": "icons/icon-48.png"
+    },
+
+    "browser_action": {
+      "default_icon": "icons/icon-48.png",
+      "default_title": "FBBIG",
+      "default_popup": "popup/popup.html"
+    },
+
+    "web_accessible_resources": ["css/fonts/*.otf", "css/fonts/*.ttf"],
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.facebook.com/*"],
+        "css": ["css/simple-style.css"],
+        "run_at": "document_start"
+      },
+      {
+        "matches": ["*://*.facebook.com/*"],
+        "js": ["js/jquery-3.4.1.min.js", "js/cleaning.js", "js/weather.js", "js/news.js", "js/duolingo.js", "js/main.js"],
+        "run_at": "document_start"
+      }
+    ],
+
+    "permissions": [
+      "*://api.nytimes.com/*",
+      "*://duo-proxy-server.herokuapp.com/*",
+      "*://api.openweathermap.org/*",
+      "*://ipapi.co/json",
+      "storage"
+    ]
+  
+  }

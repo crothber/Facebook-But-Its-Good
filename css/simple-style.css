@@ -1,0 +1,38 @@
+@font-face {
+    font-family: duolingo;
+    src: url(/css/fonts/ff-din-round-regular.otf);
+}
+
+@font-face {
+    font-family: duolingoBold;
+    src: url(/css/fonts/ff-din-round-bold.otf);
+}
+
+@font-face {
+    font-family: nyt;
+    src: url(/css/fonts/imperial-normal-500.ttf);
+}
+
+@font-face {
+    font-family: nytBold;
+    src: url(/css/fonts/cheltenham-normal-400.ttf);
+}
+
+#stories_pagelet_below_composer {
+    display: none;
+}
+#pagelet_marketplace_new_user_top_picks_rhc {
+    display: none;
+}
+#pagelet_ego_pane {
+    display: none;
+}
+#pagelet_games_rhc {
+    display: none;
+}
+#pagelet_marketplace_recently_viewed_rhc {
+    display: none;
+}
+/* div[role=article] {
+    display: none;
+} */
