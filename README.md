@@ -49,10 +49,8 @@ If you have any questions on how to use this feature, please feel free to messag
 #### Duolingo
 You can insert Duolingo quizzes into your Facebook feed. To do this, check the "Review Duolingo with me" box and enter your Duolingo username and password. The extension will then regularly show you sentences from your unfinished Duolingo sections.
 
-Right now, quizzes are just displayed as `Foreign Text` followed by `English Translation`. I'd like to improve this part, so please give feedback on how this can be made better. Maybe something flashcard-style, where you see the foreign sentence and click on it to see its translation? Maybe a quiz where you type in your guess and it tells you what you got right or wrong?
-
 #### News Headlines
-You can insert news headlines into your news feed by checking the "Show my NYT articles" box.
+You can insert news headlines from the New York Times into your news feed by checking the "Show my NYT articles" box.
 
 #### Daily Poem and Vocab
 These features aren't yet implemented. More soon.
@@ -61,9 +59,7 @@ These features aren't yet implemented. More soon.
 I don't collect your personal data. I don't want to. I don't even know how to.
 All your Facebook content stays within your browser. The only thing this extension does is change how your browser displays it.
 
-**However**, I do need to send your Duolingo username and password to a server to get your current quizzes. If you don't want me to be able to figure out how much French you know, don't check the Duolingo box. I don't store your Duolingo password, or any personally identifying information. Contact me for the Duolingo server code.
-
-For more details on what I do with your Duolingo data, see the README there.
+**However**, I do need to send your Duolingo username and password to a server to get your current quizzes. If you don't want me to be able to figure out how much French you know, don't check the Duolingo box. I don't store your Duolingo password, or any personally identifying information. Contact me for the Duolingo server code, or for a description of how it works.
 
 # Contact
 If you have questions about how to use this or whether it's secure, please let me know. I'm also very interested in hearing your thoughts on how to make this better. Thanks!
