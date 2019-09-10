@@ -30,7 +30,7 @@ function make_duo_snippet(sentence) {
             </div>
         </div>
     `;
-    return snippet_standard;
+    return snippet;
 }
 
 duo_queue = [];

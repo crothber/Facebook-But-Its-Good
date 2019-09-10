@@ -28,10 +28,16 @@ chrome.storage.local.get("show_me_news", function(i) {
 // Check local storage to see if user wants to see Duolingo quizzes
 chrome.storage.local.get("show_me_duolingo", function(i) {
     show_me_duolingo = i.show_me_duolingo;
-    if (show_me_duolingo == null) {
-        show_me_duolingo = true;
-        chrome.storage.local.set({"show_me_duolingo": show_me_duolingo});
-    }
+    chrome.storage.local.get("duolingo_username", function(i) {
+        username = i.duolingo_username
+        if (show_me_duolingo == null) {
+            show_me_duolingo = true;
+            chrome.storage.local.set({"show_me_duolingo": show_me_duolingo});
+        }
+        if (!username) {
+            show_me_duolingo = false;
+        }
+    });
 });
 
 // Observe entire document for creation of news feed
