@@ -35,7 +35,7 @@
       "*://api.nytimes.com/*",
       "*://duo-proxy-server.herokuapp.com/*",
       "*://api.openweathermap.org/*",
-      "*://ipapi.co/json",
+      "*://api.ipdata.co/*",
       "storage"
     ]
   

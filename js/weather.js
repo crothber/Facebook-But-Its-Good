@@ -16,7 +16,7 @@ function create_weather_widget(){
 
 // TODO: Return forecasts (not just current weather)
 function update_weather_widget(){
-    url = "https://ipapi.co/json"
+    url = "https://api.ipdata.co/?api-key=63665c52a8a028147b503f226d44c3ec4e24cc318ff4429301ff49c1"
     $.getJSON(url, function(response) {
         url = "https://api.openweathermap.org/data/2.5/forecast"
         data = {

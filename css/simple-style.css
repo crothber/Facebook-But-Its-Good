@@ -1,21 +1,24 @@
 @font-face {
     font-family: duolingo;
-    src: url(/css/fonts/ff-din-round-regular.otf);
+    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-regular.otf);
 }
 
 @font-face {
     font-family: duolingoBold;
-    src: url(/css/fonts/ff-din-round-bold.otf);
+    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-bold.otf),
+         url(/css/fonts/ff-din-round-bold.otf);
 }
 
 @font-face {
     font-family: nyt;
-    src: url(/css/fonts/imperial-normal-500.ttf);
+    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/imperial-normal-500.ttf),
+         url(/css/fonts/imperial-normal-500.ttf);
 }
 
 @font-face {
     font-family: nytBold;
-    src: url(/css/fonts/cheltenham-normal-400.ttf);
+    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/cheltenham-normal-400.ttf),
+         url(/css/fonts/cheltenham-normal-400.ttf);
 }
 
 #stories_pagelet_below_composer {
