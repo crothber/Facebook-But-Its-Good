@@ -1,7 +1,3 @@
-// TODO: Set the below defaults in local storage IFF they are not already set in local storage
-var show_me_duolingo = true;
-var show_me_news = true;
-
 // Get the blacklist from local storage and convert it to a list of regular expressions
 chrome.storage.local.get("blacklist", function(i) {
     if (i.blacklist) {
@@ -25,7 +21,7 @@ chrome.storage.local.get("blacklist", function(i) {
 chrome.storage.local.get("show_me_news", function(i) {
     show_me_news = i.show_me_news;
     if (show_me_news == null) {
-        show_me_news = true;
+        show_me_news = false;
         chrome.storage.local.set({"show_me_news": show_me_news});
     }
 });

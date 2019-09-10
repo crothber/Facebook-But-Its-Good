@@ -14,7 +14,7 @@ function create_weather_widget(){
     return weather_widget;
 }
 
-// TODO: Customize location, return forecasts (not just current weather)
+// TODO: Return forecasts (not just current weather)
 function update_weather_widget(){
     url = "https://ipapi.co/json"
     $.getJSON(url, function(response) {

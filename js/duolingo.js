@@ -1,3 +1,7 @@
+function flip(message) {
+    alert(message);
+}
+
 function make_duo_snippet(sentence) {
     // TODO: Make this cooler. To clarify:
     // - A sentence contains 3 parts:
@@ -11,12 +15,22 @@ function make_duo_snippet(sentence) {
     // - The Duolingo API is also pretty flexible, so we can mess around with the proxy
     //   server if there's more info we want (e.g., images, audio clips, explanations, etc.)
     snippet = `
-        <div style="background:white; text-align:center; padding:10px; margin-bottom:10px; border-radius:15px; border:2px solid lightgrey;">
-            <h3 style="font-family:duolingoBold; font-size:18px; margin:5px;">` + sentence.original + `</h3>
-            <p style="font-family:duolingo; font-size:16px; margin:5px;"> ` + sentence.best_translation + `</p>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="duoquiz" onclick="flip(this.textContent);">
+                    <h3 style="font-family:duolingoBold; font-size:18px; margin:5px;">` + sentence.original + `</h3>
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="duoquiz" onclick="flip(this.textContent);">
+                    <p style="font-family:duolingo; font-size:16px; margin:5px;"> ` + sentence.best_translation + `</p>
+                </div>
+            </div>
+            </div>
         </div>
     `;
-    return snippet
+    return snippet_standard;
 }
 
 duo_queue = [];

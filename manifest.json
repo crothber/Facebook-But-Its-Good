@@ -1,10 +1,10 @@
 {
 
     "manifest_version": 2,
-    "name": "AdBlocker",
+    "name": "FB-BIG",
     "version": "1.0",
   
-    "description": "Removes ads from Facebook.",
+    "description": "Removes Facebook ads and replaces them with content you want to see.",
   
     "icons": {
       "48": "icons/icon-48.png"
@@ -21,7 +21,7 @@
     "content_scripts": [
       {
         "matches": ["*://*.facebook.com/*"],
-        "css": ["css/simple-style.css"],
+        "css": ["css/simple-style.css", "css/duolingo.css"],
         "run_at": "document_start"
       },
       {
