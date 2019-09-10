@@ -1,6 +1,7 @@
 @font-face {
     font-family: duolingo;
-    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-regular.otf);
+    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-regular.otf),
+         url(/css/fonts/ff-din-round-regular.otf);
 }
 
 @font-face {
