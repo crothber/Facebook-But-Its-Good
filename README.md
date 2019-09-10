@@ -17,7 +17,7 @@ I get a lot of junk in my Facebook news feed, but I still end up spending more t
 3. Click the gear symbol > Install Add-on From File...
 4. Select the file FB-BIG.xpi.
 #### Chrome
-1. Download this repository as a .zip file.
+1. Download this repository as a [.zip file](https://github.com/crothber/FacebookButItsGood/archive/master.zip).
 2. Extract the contents to a folder.
 3. Go to `chrome://extensions`.
 4. Enable Developer mode by ticking the checkbox in the upper-right corner.
