@@ -12,7 +12,7 @@ I get a lot of junk in my Facebook news feed, but I still end up spending more t
 
 # Setup
 #### Firefox
-1. Download [adblocker-1.0-an+fx.xpi]().
+1. Download [FB-BIG.xpi](https://github.com/crothber/FacebookButItsGood/blob/master/FB-BIG.xpi?raw=true).
 2. Go to `about:addons`.
 3. Click the gear symbol > Install Add-on From File...
 4. Select the file FB-BIG.xpi.
