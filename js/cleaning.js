@@ -19,6 +19,7 @@ function getVisibleText(subtitle_div) {
     subtitle_div.children().each(function() {
         text += $(this).text();
     });
+    console.log(text)
     return text
 }
 
