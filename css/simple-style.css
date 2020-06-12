@@ -1,25 +1,34 @@
 @font-face {
     font-family: duolingo;
-    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-regular.otf),
-         url(/css/fonts/ff-din-round-regular.otf);
+    /* src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-regular.otf), */
+    src: url(/css/fonts/ff-din-round-regular.otf);
 }
 
 @font-face {
     font-family: duolingoBold;
-    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-bold.otf),
-         url(/css/fonts/ff-din-round-bold.otf);
+    /* src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/ff-din-round-bold.otf), */
+    src: url(/css/fonts/ff-din-round-bold.otf);
 }
 
 @font-face {
     font-family: nyt;
-    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/imperial-normal-500.ttf),
-         url(/css/fonts/imperial-normal-500.ttf);
+    /* src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/imperial-normal-500.ttf), */
+    src: url(/css/fonts/imperial-normal-500.ttf);
 }
 
 @font-face {
     font-family: nytBold;
-    src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/cheltenham-normal-400.ttf),
-         url(/css/fonts/cheltenham-normal-400.ttf);
+    /* src: url(chrome-extension://__MSG_@@extension_id__/css/fonts/cheltenham-normal-400.ttf), */
+    src: url(/css/fonts/cheltenham-normal-400.ttf);
+}
+
+@font-face {
+    font-family: merriweather;
+    src: url(/css/fonts/merriweather-regular.ttf);
+}
+
+._64b {
+    width: 475px;
 }
 
 #stories_pagelet_below_composer {
@@ -35,5 +44,33 @@
     display: none;
 }
 #pagelet_marketplace_recently_viewed_rhc {
+    display: none;
+}
+#pagelet_sidebar {
+    display: none;
+}
+#pagelet_ego_contextual_group {
+    display: none;
+}
+#pagelet_composer {
+    display: none;
+}
+
+
+div[id="video_chats"] {
+    display: none;
+}
+
+div[id^="hyperfeed_story"] {
+    display: none;
+}
+
+.fbChatSidebar.fixed_always._5pr2 { /* Remove chat sidebar */
+    display: none;
+}
+._i7m {
+    display: none;
+}
+.ihx95mk1.qjfq86k5 {
     display: none;
 }

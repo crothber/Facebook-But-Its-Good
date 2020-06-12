@@ -22,7 +22,7 @@ function expand_news_queue() {
     $.getJSON(url, function(response) {
         response.results.forEach( (article) => {
             // TODO: Make these sections customizable
-            if (['Sports', 'U.S.', 'Technology', 'World'].includes(article.section)) {
+            if (['sports', 'us', 'technology', 'world'].includes(article.section)) {
                 news_queue.unshift(article);
             }
         })

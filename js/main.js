@@ -46,16 +46,20 @@ var page_observer = new MutationObserver(function (mutationList, page_observer) 
     if (feed) {
         // news feed created, so you can stop observing the whole page
         page_observer.disconnect();
-        feed.querySelectorAll('div[role="article"]').forEach( (article)=>cleanArticle($(article)) );
+        feed.querySelectorAll('div[id^="hyperfeed_story"]').forEach( (article)=>cleanArticle($(article)) );
         // Start feed observer
         feedObserver = new MutationObserver((mutations) => {
             // stuff to do every time a page (*or subpage*) is loaded/reloaded
             if (!$("#weather-box-extension").length) {
+                $("#homepage_panel_pagelet").after(create_poetry_bar());
+                update_poetry_bar();
                 $("#homepage_panel_pagelet").after(create_weather_widget());
                 update_weather_widget();
             }
             mutations.forEach((mutation) => {
-                cleanArticle($(mutation.target));
+                if (mutation.target.id.startsWith('hyperfeed_story')) {
+                    cleanArticle($(mutation.target));
+                }
             });
         });
         feedObserver.observe(document.getElementsByClassName('fb_content')[0], {childList: true, subtree: true})
