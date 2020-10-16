@@ -46,3 +46,6 @@ div[data-pagelet="VideoChatHomeUnit"] { /* Remove chat rooms item */
 div[data-pagelet="RightRail"] { /* Remove chat sidebar */
     display: none;
 }
+#pagelet_sidebar {
+    display: none;
+}
