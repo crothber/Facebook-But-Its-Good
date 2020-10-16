@@ -17,6 +17,22 @@ chrome.storage.local.get("blacklist", function(i) {
     }
 });
 
+// Check local storage to see if user wants to see poetry
+chrome.storage.local.get("show_me_poetry", function(i) {
+    show_me_poetry = i.show_me_poetry;
+    if (show_me_poetry == null) {
+        show_me_poetry = false;
+        chrome.storage.local.set({"show_me_poetry": show_me_poetry});
+    }
+});
+// Check local storage to see if user wants to see news headlines
+chrome.storage.local.get("show_me_xkcd", function(i) {
+    show_me_xkcd = i.show_me_xkcd;
+    if (show_me_xkcd == null) {
+        show_me_xkcd = false;
+        chrome.storage.local.set({"show_me_xkcd": show_me_xkcd});
+    }
+});
 // Check local storage to see if user wants to see news headlines
 chrome.storage.local.get("show_me_news", function(i) {
     show_me_news = i.show_me_news;
@@ -40,30 +56,44 @@ chrome.storage.local.get("show_me_duolingo", function(i) {
     });
 });
 
-// Observe entire document for creation of news feed
-var page_observer = new MutationObserver(function (mutationList, page_observer) {
-    feed = document.getElementsByClassName('fb_content')[0];
-    if (feed) {
-        // news feed created, so you can stop observing the whole page
-        page_observer.disconnect();
-        feed.querySelectorAll('div[id^="hyperfeed_story"]').forEach( (article)=>cleanArticle($(article)) );
-        // Start feed observer
-        feedObserver = new MutationObserver((mutations) => {
-            // stuff to do every time a page (*or subpage*) is loaded/reloaded
-            if (!$("#weather-box-extension").length) {
-                $("#homepage_panel_pagelet").after(create_poetry_bar());
-                update_poetry_bar();
-                $("#homepage_panel_pagelet").after(create_weather_widget());
-                update_weather_widget();
+const observe_feed = function (mutationList, feedObserver) {
+    for (const mutation of mutationList) {
+        if (mutation.addedNodes.length) {
+            article = mutation.addedNodes[0]
+            if (article.matches('div[data-pagelet^="FeedUnit"]')) {
+                cleanArticle($(article))
             }
-            mutations.forEach((mutation) => {
-                if (mutation.target.id.startsWith('hyperfeed_story')) {
-                    cleanArticle($(mutation.target));
-                }
-            });
-        });
-        feedObserver.observe(document.getElementsByClassName('fb_content')[0], {childList: true, subtree: true})
+        }
     }
-});
+}
 
-page_observer.observe(document, {attributes: true, subtree: true});
+const wait_for_newsfeed = function (mutationList, pageObserver) {
+    for (const mutation of mutationList) {
+        if (mutation.addedNodes.length && $(mutation.addedNodes[0]).attr('role') == 'feed') {
+            // stuff to do every time a page (*or subpage*) is loaded/reloaded
+            // if (!$("#weather-box-extension").length) {
+            //     $("#homepage_panel_pagelet").after(create_poetry_bar());
+            //     update_poetry_bar();
+            //     $("#homepage_panel_pagelet").after(create_weather_widget());
+            //     update_weather_widget();
+            // }
+            // This is the news feed
+            const feed = mutation.addedNodes[0]
+            // Clean up all the articles already in the feed
+            for (article of feed.querySelectorAll('div[data-pagelet^="FeedUnit"]')) {
+                console.log('ARTICLE FOUND!')
+                cleanArticle($(article));
+            }
+            // Start observing the news feed for changes
+            const feedObserver = new MutationObserver(observe_feed)
+            feedObserver.observe(feed, {attributes: true, childList: true, subtree: true});
+            // We've found the news feed, so we don't need to watch the page anymore
+            pageObserver.disconnect();
+        }
+    }
+}
+
+// Observe entire document for creation of news feed
+const pageObserver = new MutationObserver(wait_for_newsfeed);
+
+pageObserver.observe(document, {attributes: true, childList: true, subtree: true});

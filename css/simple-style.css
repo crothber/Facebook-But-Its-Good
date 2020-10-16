@@ -27,50 +27,22 @@
     src: url(/css/fonts/merriweather-regular.ttf);
 }
 
-._64b {
-    width: 475px;
-}
-
-#stories_pagelet_below_composer {
-    display: none;
-}
-#pagelet_marketplace_new_user_top_picks_rhc {
-    display: none;
-}
-#pagelet_ego_pane {
-    display: none;
-}
-#pagelet_games_rhc {
-    display: none;
-}
-#pagelet_marketplace_recently_viewed_rhc {
-    display: none;
-}
-#pagelet_sidebar {
-    display: none;
-}
-#pagelet_ego_contextual_group {
-    display: none;
-}
-#pagelet_composer {
+div[data-pagelet^="FeedUnit"] { /* Articles default to hidden */
     display: none;
 }
 
-
-div[id="video_chats"] {
+.to382e16 { /* Remove top icons */
     display: none;
 }
 
-div[id^="hyperfeed_story"] {
+div[data-pagelet="Stories"] { /* Remove stories item */
     display: none;
 }
 
-.fbChatSidebar.fixed_always._5pr2 { /* Remove chat sidebar */
+div[data-pagelet="VideoChatHomeUnit"] { /* Remove chat rooms item */
     display: none;
 }
-._i7m {
-    display: none;
-}
-.ihx95mk1.qjfq86k5 {
+
+div[data-pagelet="RightRail"] { /* Remove chat sidebar */
     display: none;
 }

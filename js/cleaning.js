@@ -26,7 +26,16 @@ function isBlocked(subtitle) {
     }
 }
 
+function is_friendship_video(article) {
+    if (article.text().includes('years of friendship on Facebook!')) {
+        return true;
+    } else {
+        return false
+    }
+}
+
 function is_shared_article(article) {
+    return false;
     var titles = article.find($(".fwn.fcg"));
     if (titles[0].innerText.includes('was tagged')) {
         return false;
@@ -43,24 +52,39 @@ function is_shared_article(article) {
 cleaned_articles = []
 function cleanArticle(article) {
     /* Hide blacklisted posts ("articles"), and return whether that post is visible */
-    var article_id = article[0].id
-    var titles = article.find($(".fwn.fcg"));
-    var title = titles[0].innerText
-    var subtitles = article.find($(".fsm.fwn.fcg"));
-    var subtitle = getVisibleText($(subtitles[0]));
+    console.log('ARTICLE', article);
+
+    var supertitle = $(article.find($(".j1vyfwqu"))[0]);
+    var supertitle_text = supertitle.text();
+    console.log('SUPERTITLE', supertitle_text);
+
+    var title = $(article.find($(".qzhwtbm6.knvmm38d"))[0]);
+    aria_label = title.find('div[aria-label]').attr('aria-label');
+    if (aria_label) {
+        var title_text = aria_label;
+    } else {
+        var title_text = title.text();
+    }
+    console.log('TITLE', title_text);
+    
+    var subtitle = $(article.find($(".b1v8xokw, .j1lvzwm4"))[0]);
+    subtitle_text = subtitle.attr('aria-label');
+    console.log('SUBTITLE', subtitle_text);
 
     // If there's no title/subtitle, it's already hidden, so just return false.
-    if (!title || !subtitle) return false;
+    if (!title_text || !subtitle_text) return false;
 
     // Only proceed if we haven't already seen this article
-    if (!cleaned_articles.includes(article_id)) {
-        cleaned_articles.unshift(article_id);
-    } else {
-        return
-    }
+    // if (!cleaned_articles.includes(article_id)) {
+    //     cleaned_articles.unshift(article_id);
+    // } else {
+    //     return
+    // }
 
     // If it's a visible article and is blocked, then hide it and return false.
-    if (!( isBlocked(title) || isBlocked(subtitle) || is_shared_article(article) )) {
+    console.log('ASSESSING', title_text)
+    if (!( isBlocked(supertitle_text) || isBlocked(title_text) || isBlocked(subtitle_text) || is_friendship_video(article) || is_shared_article(article) )) {
+        console.log('SHOWING', title_text)
         article.show();
         if (show_me_news) {
             // add news article
@@ -70,7 +94,7 @@ function cleanArticle(article) {
             // add duo quiz
             article.after(get_duo_quiz());
         }
-        if (true) {
+        if (show_me_xkcd) {
             // add xkcd comic
             article.after(get_xkcd_comic());
         }

@@ -4,6 +4,9 @@ chrome.storage.local.get("blacklist", function(i) {
 chrome.storage.local.get("show_me_news", function(i) {
     document.getElementById("news-checkbox").checked = i.show_me_news;
 });
+chrome.storage.local.get("show_me_xkcd", function(i) {
+    document.getElementById("xkcd-checkbox").checked = i.show_me_xkcd;
+});
 chrome.storage.local.get("show_me_duolingo", function(i) {
     document.getElementById("duolingo-checkbox").checked = i.show_me_duolingo;
 });
@@ -33,6 +36,9 @@ document.getElementById('options-submit-button').onclick = function() {
     
     var show_me_news = document.getElementById("news-checkbox").checked;
     chrome.storage.local.set({"show_me_news": show_me_news});
+
+    var show_me_xkcd = document.getElementById("xkcd-checkbox").checked;
+    chrome.storage.local.set({"show_me_xkcd": show_me_xkcd});
 
     var show_me_duolingo = document.getElementById("duolingo-checkbox").checked;
     chrome.storage.local.set({"show_me_duolingo": show_me_duolingo});
